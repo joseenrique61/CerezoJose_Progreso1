@@ -30,10 +30,12 @@ namespace CerezoJose_Progreso1.Models
 		[Required]
 		[DisplayName("Fecha de nacimiento")]
 		[Description("Fecha en la que nació el usuario.")]
+		[DataType(DataType.Date)]
 		public DateTime FechaNacimiento { get; set; }
 
 		[Required]
 		[ForeignKey(nameof(Telefono))]
+		[DisplayName(nameof(Telefono))]
 		public int TelefonoId { get; set; }
 
 		public Telefono? Telefono { get; set; }
