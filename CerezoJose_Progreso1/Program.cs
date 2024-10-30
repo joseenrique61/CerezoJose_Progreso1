@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CerezoJose_Progreso1.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CerezoJose_Progreso1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CerezoJose_Progreso1Context") ?? throw new InvalidOperationException("Connection string 'CerezoJose_Progreso1Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
